@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            background-color: brown;
+            width: 60%;
+            height: 100vh;
+            color: white;
+            border-radius: 30px;
+            padding-top: 20px;
+        }
+        .parent{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        label{
+            padding-top: 20px;
+            font-size: 25px;
+        }
+        input{
+            padding-top: 8px;
+            border-radius: 20px;
+            padding: 10px;
+            width: 40%;
+        }
+        button
+        {
+            margin-top: 20px;
+            font-size: 25px;
+            background-color: rgb(226, 5, 5);
+            width: 150px;
+            border: none;
+            border-radius: 10px;
+            color: white;
+            padding: 10px;
+            transition: 0.1s ease-in-out;
+        }
+        button:active{
+            font-size: 10px;
+        }
+        img{
+            margin-top: 20px;
+        }
+        .loader {
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #3498db;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+}
+    </style>
+</head>
+<body>
+    <div class="parent">
+        <div class="container">
+       
+            <H1>Welcome to Qr-Generater</H1>
+           <label for="">Enter text data</label> <input type="text" name="" id="input"><button id="btn" onclick="submit()">submit</button>
+           <img src="" id="img" alt="">
+           <div id="loader" ></div>
+        </div>
+    </div>
+    <script>
+        
+       function submit(){
+       let a= document.getElementById('loader');
+       a.classList.add('loader')
+        let input=document.getElementById('input').value;
+        let api=`https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${input}`;
+        document.getElementById('img').src=api
+       a.classList.remove('loader');
+        
+       
+       }
+
+     
+        
+    </script>
+</body>
+</html>
